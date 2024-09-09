@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 const globalStyles = StyleSheet.create({
+  // Estilos existentes e adicionais
   container: {
     flex: 1,
     padding: 16,
@@ -27,6 +28,42 @@ const globalStyles = StyleSheet.create({
     color: '#000000',
     fontSize: 16,
   },
+  header: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#f0f0f0',
+    marginBottom: 10,
+  },
+  subheader: {
+    fontSize: 18,
+    color: '#f0f0f0',
+    marginBottom: 5,
+  },
+  paragraph: {
+    fontSize: 16,
+    color: '#f0f0f0',
+    marginBottom: 10,
+  },
+  link: {
+    color: '#00ff00', 
+    textDecorationLine: 'underline',
+  },
+  error: {
+    color: '#ff0000', 
+    fontSize: 16,
+  },
 });
 
-export default globalStyles;
+const getStyle = (styleName) => {
+  return globalStyles[styleName];
+};
+
+const createStyle = (styleName, style) => {
+  globalStyles[styleName] = style;
+};
+
+const updateStyle = (styleName, style) => {
+  globalStyles[styleName] = { ...globalStyles[styleName], ...style };
+};
+
+export { globalStyles, getStyle, createStyle, updateStyle };
