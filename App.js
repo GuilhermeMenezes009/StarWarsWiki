@@ -1,17 +1,24 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import RootStack from './navigation/RootStack';
+import { View, Text } from 'react-native';
+import { globalStyles, getStyle, createStyle, updateStyle } from './globalStyles';
 
-export default function App() {
+const App = () => {
+  const headerStyle = getStyle('header');
+  const paragraphStyle = getStyle('paragraph');
+
   return (
-    <View style={styles.container}>
-      <RootStack />
+    <View>
+      <Text style={headerStyle}>Título</Text>
+      <Text style={paragraphStyle}>Parágrafo</Text>
     </View>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
+createStyle('customStyle', {
+  fontSize: 24,
+  color: '#00ff00',
+});
+
+updateStyle('header', {
+  fontSize: 30,
 });
